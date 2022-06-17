@@ -1,7 +1,5 @@
 ## 1.算法题目
 
----------
-
 **二叉树的后续遍历**
 
 https://leetcode.cn/problems/binary-tree-postorder-traversal/
@@ -12,7 +10,6 @@ https://leetcode.cn/problems/binary-tree-postorder-traversal/
 
 ## 2.题解说明
 
-----------
 首先要先明白二叉树的几种遍历顺序：
 
 - 前序遍历：根节点-->左树-->右树
