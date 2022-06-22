@@ -52,3 +52,63 @@ func ThirdMax(nums []int) int {
 }
 
 ```
+
+## 2.[二叉搜索树中第K小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/)
+**题目：**
+给定一个二叉搜索树的根节点 root ，和一个整数 k ，请你设计一个算法查找其中第 k 个最小元素（从 1 开始计数）。
+
+**题解说明：**
+
+思路1：
+二叉搜索树，特点就是左节点值小于根节点值，右节点值大于根节点值，基于这个特点，采用中序遍历（左->根->右）得到一个排好序的集合，取第K个最小的元素即可。
+
+中序遍历，首先想到的就是**递归法**
+```java
+ public int kthSmallest(TreeNode root, int k) {
+        // 采用中序遍历，取第K个元素
+        List<Integer> list = traverse(root);
+        return list.get(k-1);
+    }
+
+    private List<Integer> traverse(TreeNode root){
+        List<Integer> list = new ArrayList<>();
+        if(root.left == null && root.right == null) {
+            list.add(root.val);
+            return list;
+        }
+        if(root.left != null) {
+            list.addAll(traverse(root.left));
+        }
+
+        list.add(root.val);
+
+        if(root.right != null){
+            list.addAll(traverse(root.right));
+        }
+
+        return list;
+    }
+```
+
+同样也可以用**迭代法**实现：
+
+Go实现迭代法：
+```golang
+func kthSmallest(root *TreeNode, k int) int {
+    // 声明一个栈结构存放元素
+    var stack []*TreeNode = []*TreeNode{}
+
+    for {
+        for root != nil {
+            stack = append(stack, root)
+            root = root.Left
+        }
+        stack, root = stack[:len(stack)-1], stack[len(stack)-1]
+        k--
+        if k==0 {
+            return root.Val
+        }
+        root = root.Right
+    }
+}
+```
