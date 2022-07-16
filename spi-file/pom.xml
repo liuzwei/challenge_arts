@@ -2,18 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>challenge_arts</artifactId>
+        <groupId>com.arts</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.arts</groupId>
-    <artifactId>challenge_arts</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>spi-sdk</module>
-        <module>spi-file</module>
-        <module>spi-database</module>
-        <module>spi-test</module>
-    </modules>
+    <artifactId>spi-file</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -22,9 +19,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <groupId>com.arts</groupId>
+            <artifactId>spi-sdk</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 </project>
