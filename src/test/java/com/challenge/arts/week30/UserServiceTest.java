@@ -1,7 +1,7 @@
 package com.challenge.arts.week30;
 
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -79,7 +79,7 @@ class UserServiceTest {
 
     @Test
     void getUserName() {
-
+        assertAll();
     }
 
 }
